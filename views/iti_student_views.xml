@@ -6,7 +6,62 @@
         <field name="res_model">iti.student</field>
     </record>
 
-     <menuitem id="iti_student_menu" name="Student" parent="iti_employee_menu" action="iti_student_action"/>
+    <!-- tree view-->
+    <record id="iti_student_tree_view" model="ir.ui.view">
+        <field name="name">ITI Student Tree View</field>
+        <field name="model">iti.student</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="info"/>
+                <field name="age"/>
+                <field name="birth_date"/>
+                <field name="salary"/>
+            </tree>
+        </field>
+    </record>
 
+    <!--form view -->
+    <record id="iti_student_form_view" model="ir.ui.view">
+        <field name="name">ITI Student Form View</field>
+        <field name="model">iti.student</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="approve_action" string="Approve" type="object"/>
+                </header>
+                <sheet>
+                    <notebook>
+                        <page string="Page1">
+                            <group string="Personal Information">
+                                <field name="name"/>
+                                <field name="info"/>
+                                <field name="is_accepted"/>
+                                <field name="age"/>
+                                <field name="image"/>
+                                <field name="birth_date"/>
+                            </group>
+                        </page>
+                        <page string="Page2">
+                            <group string="Salary Information">
+                                <field name="salary" invisible="not is_working"/>
+                                <field name="cv" />
+                                <field name="is_working"/>
+                            </group>
+                        </page>
+                        <page string="Track Information">
+                            <group>
+                                <field name="track_id" domain="[('is_opened','=',True)]"/>
+                                <field name="track_capacity"/>
+                            </group>
+                        </page>
+                    </notebook>
+
+                </sheet>
+            </form>
+        </field>
+
+    </record>
+    <menuitem id="iti_student_menu" name="Student" parent="iti_employee_menu" action="iti_student_action"/>
 
 </odoo>
