@@ -14,7 +14,7 @@
             <tree>
                 <field name="name"/>
                 <field name="info"/>
-                <field name="age"/>
+<!--                <field name="age"/>-->
                 <field name="birth_date"/>
                 <field name="salary"/>
             </tree>
@@ -29,15 +29,18 @@
             <form>
                 <header>
                     <button name="approve_action" string="Approve" type="object"/>
+                    <field name="levels" widget="statusbar" options="{'clickable':1}"/>
                 </header>
                 <sheet>
                     <notebook>
                         <page string="Page1">
                             <group string="Personal Information">
                                 <field name="name"/>
+                                <field name="roll_id"/>
                                 <field name="info"/>
                                 <field name="is_accepted"/>
                                 <field name="age"/>
+                                <field name="graduate_age"/>
                                 <field name="image"/>
                                 <field name="birth_date"/>
                             </group>
@@ -53,6 +56,17 @@
                             <group>
                                 <field name="track_id" domain="[('is_opened','=',True)]"/>
                                 <field name="track_capacity"/>
+                            </group>
+                        </page>
+                        <page string="Level Log">
+                            <group>
+                                <field name="level_logs">
+                                    <tree>
+                                        <field name="description"/>
+                                        <field name="create_date"/>
+                                        <field name="create_uid"/>
+                                    </tree>
+                                </field>
                             </group>
                         </page>
                     </notebook>
