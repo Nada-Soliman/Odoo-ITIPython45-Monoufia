@@ -1,0 +1,13 @@
+<odoo>
+
+      <record id="student_report" model="ir.actions.report">
+            <field name="name">Student Report</field>
+            <field name="model">iti.student</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">iti5.iti_student_template</field>
+            <field name="report_file">iti5.iti_student_template</field>
+            <field name="binding_model_id" ref="model_iti_student"/>
+            <field name="print_report_name">"Student Report"</field>
+        </record>
+
+</odoo>

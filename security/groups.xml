@@ -1,0 +1,29 @@
+<odoo>
+    <!--category-->
+    <record id="iti_department" model="ir.module.category">
+        <field name="name">ITI Department</field>
+    </record>
+
+    <!--groups-->
+    <record id="manager_group" model="res.groups">
+        <field name="name">Managers</field>
+        <field name="category_id" ref="iti_department"/>
+    </record>
+
+    <record id="employee_group" model="res.groups">
+        <field name="name">Employees</field>
+        <field name="category_id" ref="iti_department"/>
+    </record>
+
+
+    <!--Rule-->
+    <record id="user_student_record_rule" model="ir.rule">
+        <field name="name">User see his own records</field>
+        <field name="model_id" ref="model_iti_student"/>
+        <field name="domain_force">[('create_uid','=',user.id)]</field>
+        <field name="perm_unlink" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_create" eval="1"/>
+    </record>
+</odoo>

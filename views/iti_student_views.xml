@@ -45,8 +45,8 @@
                                 <field name="birth_date"/>
                             </group>
                         </page>
-                        <page string="Page2">
-                            <group string="Salary Information">
+                        <page string="Page2" >
+                            <group string="Salary Information" >
                                 <field name="salary" invisible="not is_working"/>
                                 <field name="cv" />
                                 <field name="is_working"/>
